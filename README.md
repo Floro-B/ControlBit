@@ -1,2 +1,2 @@
 # NoProblem
-Ako si poradi s opravou elektroniky
+Ako si poradit s opravou elektroniky
