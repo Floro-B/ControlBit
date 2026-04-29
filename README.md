@@ -1,2 +1,2 @@
-# NoProblem
-Ako si poradit s opravou elektroniky
+# ControlBit
+Ako si poradiť s opravou elektroniky

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Súčiastky | ControlBit</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html" class="logo-link" aria-label="Prejsť na domovskú stránku">
+      <img src="images/ChatGPT Image Apr 27, 2026, 08_17_16 PM.png" alt="ControlBit logo" class="site-logo">
+    </a>
+    <div class="menu-wrap">
+      <input type="checkbox" id="menu-toggle" class="menu-toggle">
+      <label for="menu-toggle" class="menu-button" aria-label="Otvoriť menu">Menu</label>
+      <nav class="menu-panel" aria-label="Hlavné menu">
+        <a href="index.html">Domov</a>
+        <a href="clanky.html">Články</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="content-page">
+    <h1>Súčiastky k mikrokontrolérom</h1>
+
+    <p class="intro-box">
+      Je niekoľko súčiastok, ktoré pri práci s mikrokontrolérmi používame. Sú tu opísané od úplných základov.
+      Pretože je nespočetné množstvo článkov a videí, ktoré detailne objasňujú princíp fungovania týchto súčiastok,
+      nebudeme sa veľmi zaoberať princípom, ale použitím. Cieľom je predstaviť súčiastky tak, aby sme ich vedeli zapojiť.
+    </p>
+
+    <section class="articles" aria-label="Obsah článku">
+      <h2>Základné súčiastky</h2>
+      <div class="intro-box intro-box-with-media">
+        <h3>1. Rezistory</h3>
+        <p>
+          Rezistory sú pomerne jednoduché súčiastky, všetko čo robia je, že kladú odpor prúdu. Čiže čím väčšia hodnota odporu rezistora,
+          tým tečie menší prúd. Z toho vyplýva aj ich použitie. Ak prúd v obvode nie je obmedzený, môže poškodiť iné súčiastky.
+          Zapojením rezistora do série prúd obmedzíme, dokonca ním môžeme nastaviť konkrétnu hodnotu prúdu.
+        </p>
+        <figure class="float-media">
+          <img src="images/resistor.png" alt="Rezistor" class="float-media-image">
+          <figcaption>Rezistor (1kΩ)</figcaption>
+        </figure>
+        <p>
+          Určenie správnej hodnoty odporu nie je len tak od oka.
+          Na výpočet hodnoty odporu rezistora existuje jednoduchý vzťah, ktorý sa volá Ohmov zákon. Ten znie:
+        </p>
+        <p>
+          R = U / I
+        </p>
+        <p>
+          R je výsledný odpor rezistora, I je prúd, ktorý chceme, aby tiekol rezistorom, a U je napätie na rezistore.
+          Zoberme si 5V zdroj, ku ktorému pripojíme 10mA LED a rezistor do série. Na LEDke bude napätie okolo 2V, zdroj dodáva 5V, takže na
+          rezistore musí byť úbytok zostávajúce 3V. Dosadíme:
+        </p>
+        <p>
+          R = 3V / 0,01A
+        </p> 
+        <p>
+          a dostaneme R = 300 Ohmov. 
+        </p>
+        <p>
+          Na nastavenie presnej hodnoty odporu môžeme použiť regulovateľný rezistor, ktorého meno je potenciometer.
+          Medzi krajnými vývodmi je pevný odpor, ale otáčaním meníme odpor medzi stredným a krajnými vývodmi.
+        </p>
+        <div class="float-clear"></div>
+
+        <h3>2. LED</h3>
+        <figure class="float-media">
+          <img src="images/led.png" alt="LED dióda" class="float-media-image">
+          <figcaption>LED s vyznačenou anódou a katódou</figcaption>
+        </figure>
+        <p>
+          Vychádza z princípu fungovania polovodičovej diódy. Nám stačí vedieť, že má 2 vývody, a to anódu a katódu.
+          Anódou nazývame ten vývod, na ktorý pripájame + a katóda ide teda na -. Rýchlo viete zistiť, že opačne zapojená LEDka nesvieti.
+          Anóda býva na dlhšom vývode a LEDka je na tej strane kúsok zrezaná. 
+        </p>
+        <p>
+          Orientačne, biela a modrá LED potrebuje napätie približne 3V, aby svietila,
+          zelená 2,5V a červená svieti už od 2V, niekedy aj menej. Silnejšie 3mm a 5mm LED znesú aj 30 mA, ale väčšina signalizačných
+          LED si vystačí s prúdom do 10mA.
+        </p>
+        <p>
+          Netreba nimi zbytočne púšťať väčší prúd "aby viac svietila", lebo zasvieti raz a poriadne :)
+        </p>
+        <div class="float-clear"></div>
+
+        <h3>3. Kondenzátory</h3>
+        <p>
+          Hoci sa kondenzátor pri mikrokontroléroch nepoužíva často, môžeme sa s ním stretnúť napríklad pri RC oscilátoroch alebo časovacích obvodoch.
+          Ako ste si mohli všimnúť, používa sa v súvislosti s časom. Funguje v princípe ako akumulátor s malou kapacitou a
+          schopnosťou sa rýchlo nabíjať a vybíjať, radovo v milisekundách. Podstatný je čas nabíjania a vybíjania, ktorý závisí od kapacity.
+        </p>
+        <figure class="float-media">
+          <img src="images/capacitors.jpg" alt="Rôzne kondenzátory" class="float-media-image">
+          <figcaption>Najčastejšie typy kondenzátorov (zdroj: Pexels)</figcaption>
+        </figure>
+        <p>
+          Okrem toho sa používa na filtráciu napájacieho napätia. Mikrokontroléry potrebujú relatívne stabilné napájanie tj. s čo najmenšími zmenami
+          voči požadovanej hodnote. V elektrických obvodoch sa neustále menia rôzne parametre ako spotreba, prechodové odpory, teplota a to vplýva na
+          aktuálnu hodnotu napájacieho napätia. Ak nechceme, aby kolísalo, vieme veľkú časť výkyvov eliminovať práve kondenzátorom.
+          Môžeme si to predstaviť ako tlmič na kolese auta. Pri prejazde cez kopček sa stlačí a cez jamu sa uvoľní.
+        </p>
+        <p>
+          Typické hodnoty pre elektrolytické kondenzátory sú od 1uF do 1000uF, pre keramické kondenzátory od 1pF do 1uF. Dimenzujeme ich na
+          napätie, ktoré je aspoň 1,5 násobkom používaného napätia.
+        </p>
+        <div class="float-clear"></div>
+
+        <h3>4. Kryštály</h3>
+        <figure class="float-media">
+          <img src="images/crystal.png" alt="Kryštálový oscilátor" class="float-media-image">
+          <figcaption>Kryštál (16 MHz)</figcaption>
+        </figure>
+        <p>
+          Ak potrebujeme pracovať s presným časom, použijeme kryštálový oscilátor. Je to najpresnejší spôsob ako zabezpečiť stabilný čas, 
+          preto sa používa aj v hodinkách.
+          Je vyrábaný na rôzne frekvencie radovo od desiatok kHz do stoviek MHz. Viac o zapojení a použití si povieme pri oscilátoroch.
+          
+        </p>
+        <div class="float-clear"></div>
+
+        <h3>5. Tlačidlá</h3>
+        <figure class="float-media">
+          <img src="images/tlacidlo.png" alt="Tlačidlo zapojené so štyrmi vývodmi" class="float-media-image">
+           <figcaption>Tlačidlo - piny 1-3 a 2-4 sú prepojené</figcaption>
+        </figure>
+        <p>
+            Pri práci s mikrokontrolérmi používame tlačidlá, niekedy označované ako mikrospínače.
+            Je to najjednoduchší spôsob, ako meniť logickú úroveň na vstupoch mikrokontroléra.
+            Prečo ale má 4 vývodami, keď stačia 2? V skutočnosti sú to 2 dvojice navzájom prepojených pinov a je dobre poznať ako ich zapojiť.
+            Na obrázku môžeme vidieť spôsob prepojenia.
+        </p>
+          <div class="float-clear"></div>
+      </div>
+
+      <h2>Zaujímavé komponenty</h2>
+      <div class="intro-box intro-box-with-media">
+        <h3>1. Mikrokontroléry</h3>
+        <figure class="float-media">
+          <img src="images/mikrokontroler.png" alt="Mikrokontrolér na doske" class="float-media-image">
+          <figcaption>Mikrokontrolér a vývojová doska so svojim mikrokontrolerom</figcaption>
+        </figure>
+        <p>
+          Mikrokontrolér alebo mikropočítač je programovateľný elektrický obvod. Obsahuje nielen procesor, ale aj vstavané periférie,
+          ako napríklad pamäť FLASH, RAM, EEPROM, prevodníky, časovače, registre a pod. Niečo ako zjednodušený počítač integrovaný do malého puzdra.
+          Môžu byť osadené na moduloch, čo výrazne zjednodušuje používanie. Majú na module napájanie, programátor, oscilátor, prípadne
+          aj nejaké ovládacie, signalizačné prvky a senzory. Ak nie sú osadené na module, zvyčajne potrebujeme programátor na nahratie programu.
+          Vyžadujú aj pripojenie externých komponentov, čo môže byť náročnejšie, napriek tomu však flexibilnejšie.
+        </p>
+        <div class="float-clear"></div>
+
+        <h3>2. Periférie mikrokontrolérov</h3>
+        <figure class="float-media">
+          <img src="images/periferie.png" alt="Periférie k mikrokontroléru" class="float-media-image">
+          <figcaption>Periférie mikrokontrolérov</figcaption>
+        </figure>
+        <p>
+          Okrem interných periférií potrebných na samotné fungovanie mikrokontroléra môžeme pripojiť aj externé periférie a tak
+          rozšíriť jeho použitie. Patria sem predovšetkým senzory a snímače, ovládacie prvky, displeje, drivery pre motorceky, komunikačné moduly atď.
+        </p>
+        <p>
+          Periférie, ktoré potrebujú napájanie pracujú zvyčajne s 3,3V alebo 5V logikou, prípadne s iným napätím.
+        </p>
+        <div class="float-clear"></div>
+
+        <h3>3. Programátory</h3>
+        <figure class="float-media">
+          <img src="images/programator.png" alt="Programátor mikrokontrolérov" class="float-media-image">
+          <figcaption>Programátor mikrokontrolérov</figcaption>
+        </figure>
+        <p>
+          Ako sme už spomínali, mikrokontroléry potrebujú programátor na nahratie programu. Programátor spraví asi to,
+          že prečíta signály z USB portu počítača, z ktorého nahrávame program, a preloží ich do "reči" mikrokontroléra, ktorý si program uloží do pamäte.
+        </p>
+        <p>
+          Rôzne rodiny mikrokontrolérov vyžadujú rôzne programátory, nie je jeden univerzálny. Napríklad rodina PIC od firmy Microchip
+          používa PicKit, rodina AVR od firmy Atmel používa AVR ISP a podobne.
+        </p>
+        <div class="float-clear"></div>
+
+        <h3>4. 7-segmentové displeje</h3>
+        <figure class="float-media">
+          <img src="images/displej.png" alt="7-segmentový displej" class="float-media-image">
+          <figcaption>7-segmentový displej</figcaption>
+        </figure>
+        <p>
+          Hoci vyzerá zložito, sú to iba LEDky usporiadané do tvaru číslice. Kvôli zjednodušeniu a úspore pinov sú 7-segmentovky vyrábané
+          so spoločnou anódou alebo spoločnou katódou.
+          So spoločnou anódou znamená, že anódy všetkých LED sú spojené do jedného vývodu a teda tento vývod pripojíme na + a na
+          katódy privádzame mínus podľa toho, ktorú LED potrebujeme budiť. So spoločnou katódou je to to isté, len opačne. 
+        </p>
+        <p>
+          Displeje s viacerými ciframi majú
+          spoločnú anódu alebo katódu pre každú cifru zvlášť, čím určujeme, ktorá cifra bude práve aktívna. Vývody pre budenie rovnakých segmentov
+          každej cifry sú zas vyvedené na spoločný pin. Pri dvojcifernom displeji máme teda 2 piny pre cifry a 8 pinov pre segmenty (a bodku),
+          spolu 10 pinov namiesto 18, keby bol každý pin zvlášť. 
+          Ako ste si mohli všimnúť, takýmto spôsobom sa nedajú zobraziť obe cifry súčasne, iba ak by sme chceli zobraziť na každej cifre rovnaké číslice.
+          V praxi sa nezopínajú všetky cifry na displeji naraz, ale veľmi rýchlo sa prepína medzi jednotlivými ciframi, pričom na každej sa nastaví
+          požadovaná číslica.
+        </p>
+        <div class="float-clear"></div>
+
+        <h3>5. Oscilátory</h3>
+        <p>
+          Opäť, na moduloch ako Arduino alebo ESP je oscilátor už zabudovaný, ale pri samotných mikrokontroléroch sa dá pripojiť samostatne.
+          Niektoré mikrokontroléry majú vstavaný oscilátor, ten však nie je veľmi presný a postačí na nenáročné aplikácie, kde presný čas nehrá dôležitú rolu.
+          Interný oscilátor sa nastavuje softvérovo.
+        </p>
+        <figure class="float-media">
+          <img src="images/Screenshot from 2026-04-23 14-25-13.png" alt="Nastavenie oscilátora v mikrokontroléri" class="float-media-image">
+          <figcaption>Oscilator sa pripaja na OSC1 a OSC2</figcaption>
+        </figure>
+        <p>
+          V aplikáciách, kde je presný čas podstatný, môžeme použiť externý oscilátor, a to buď kryštál,
+          alebo RC oscilátor. Vieme, že kryštál je najpresnejší, jednoduchší na zapojenie a nastavenie. RC oscilátor napriek tomu vieme síce
+          jednoducho zložiť z rezistora a kondenzátorov, ale frekvencia je menej stabilná a závisí od presnej hodnoty súčiastok. Externý oscilátor sa pripája
+          na piny mikrokontroléra zvyčajne označené ako OSC1 a OSC2 alebo IN1 a IN2. To znamená, že 2 piny mikrokontroléra musíme obetovať.
+          Na obrázku je pinout mikrokontroléra PIC16F84A od firmy Microchip a môžeme vidieť piny, kde sa pripája oscilátor.
+        </p>
+        <p>
+          Oscilátor generuje impulzy, ktorými sa mikrokontrolér riadi. Mikrokontrolér si môže frekvenciu oscilátora vydeliť, ale všeobecne platí,
+          že jeden takt znamená 1 vykonanú operáciu.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    Máš otázky? Nevieš si rady? Kontaktuj ma cez e-mail: brazdil.flori@gmail.com<br>
+    Som otvorený aj spätnej väzbe, tvoj pohľad, nápady a návrhy mi môžu pomôcť vylepšiť toto dielo.
+  </footer>
+</body>
+</html>

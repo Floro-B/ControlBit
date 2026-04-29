@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ControlBit</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="home-page">
+  <header class="site-header">
+    <a href="index.html" class="logo-link" aria-label="Prejsť na domovskú stránku">
+      <img src="images/ChatGPT Image Apr 27, 2026, 08_17_16 PM.png" alt="ControlBit logo" class="site-logo">
+    </a>
+    <div class="menu-wrap">
+      <input type="checkbox" id="menu-toggle" class="menu-toggle">
+      <label for="menu-toggle" class="menu-button" aria-label="Otvoriť menu">Menu</label>
+      <nav class="menu-panel" aria-label="Hlavné menu">
+        <a href="index.html">Domov</a>
+        <a href="clanky.html">Články</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Vitajte na <span class="brand-b">C</span>ontrol<span class="brand-b">B</span>it</h1>
+      <h2 class="home-subtitle" aria-label="Podnadpis">Hráme sa tu s mikrokontrolérmi</h2>
+      <section class="home-article-preview" aria-label="Prehľad článkov">
+        <h2>Najnovší článok</h2>
+        <a class="article-card" href="suciastky-a-casti-pristrojov.html">
+          <img src="images/suciastky.jpg" alt="Súčiastky" class="small-thumb">
+          <div class="text-wrapper">
+            <strong>Súčiastky k mikrokontrolérom</strong>
+            <p>Čo treba poznať pred tým, ako začnete pracovať s mikrokontrolérmi?</p>
+          </div>
+        </a>
+
+        <h2>Pripravujeme...</h2>
+        <a class="article-card" href="arduino-bit-po-bite.html">
+          <img src="images/arduino.jpg" alt="Arduino" class="small-thumb">
+          <div class="text-wrapper">
+            <strong>Arduino bit po bite</strong>
+            <p>Ako funguje Arduino, ako s ním pracovať a rozblikať LEDku?</p>
+          </div>
+        </a>
+      </section>
+    </section>
+
+    <section class="story-stack" aria-label="Doplňujúce informácie">
+      <details class="story-toggle">
+        <summary>Akým zázrakom vznikol tento blog?</summary>
+        <p>
+          Už je to pár rokov odkedy som rozblikal prvú LEDku pomocou mikrokontroléra.
+          Pamätám si aká to bola odmena za tú prácu, dokým sa mi to podarilo. Okrem internetu mi nemal kto pomôcť, tak som sa učil svojpomocne.
+          Ako som postupne zistil, nie som sám, kto je v takejto situácii.
+          No a keďže ma to neprestáva baviť, založil som tento blog.
+          Predsa len ma to experimentovanie stálo niekoľko spálených súčiastok, vyhodené ističe či vybuchujúce poistky.
+          Napriek tomu všetkému som sa však nerozhodol stať pyrotechnikom, ale napísať zopár článkov, ako sa ním nestať.
+        </p>
+      </details>
+
+      <details class="story-toggle">
+        <summary>Iné záležitosti</summary>
+        <p>
+          Všetky informácie a články sú napísané zo zdrojov autora, pokiaľ nie je uvedené inak. Fotografie a iné súbory sú vytvorené autorom, 
+          pokiaľ nie je uvedené inak.
+          Autor nezodpovedá za následky vzniknuté na základe informácií, podkladov a článkov na tomto blogu.
+          Napriek tomu, že sú projekty, návody a články vytvorené čo najlepšie, môžu sa vyskytnúť chyby, preto dbajte na opatrnosť. 
+        </p>
+      </details>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    Máš otázky? Nevieš si rady? Kontaktuj ma cez e-mail: brazdil.flori@gmail.com<br>
+    Som otvorený aj spätnej väzbe, tvoj pohľad, nápady a návrhy mi môžu pomôcť vylepšiť toto dielo.
+  </footer>
+
+  <script>
+    const homePage = document.querySelector("body.home-page");
+    const homeFooter = document.querySelector("body.home-page .site-footer");
+    const storyToggles = document.querySelectorAll(".story-stack .story-toggle");
+
+    const updateHomeLayout = () => {
+      if (!homePage || !homeFooter) {
+        return;
+      }
+
+      const footerHeight = Math.ceil(homeFooter.getBoundingClientRect().height);
+      homePage.style.setProperty("--home-footer-offset", `${footerHeight}px`);
+    };
+
+    updateHomeLayout();
+    window.addEventListener("resize", updateHomeLayout);
+
+    storyToggles.forEach((toggle) => {
+      toggle.addEventListener("toggle", () => {
+        updateHomeLayout();
+      });
+    });
+  </script>
+</body>
+</html>
