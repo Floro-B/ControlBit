@@ -616,8 +616,10 @@ body.home-page .site-footer {
   }
 
   .home-subtitle {
-    top: calc(8px + 2.8rem);
+    top: calc(8px + 3.2rem);
+    width: calc(100% - 18px);
     font-size: clamp(0.85rem, 1.8vw, 1.1rem);
+    text-align: center;
   }
 
   .home-article-preview {
